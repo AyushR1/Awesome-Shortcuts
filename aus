@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash
 
 nightlight(){
     if [[ $(gsettings get org.gnome.settings-daemon.plugins.color night-light-enabled) == "true" ]]; 
@@ -7,9 +7,10 @@ nightlight(){
     fi
 }
 
-
 if [ "$1" == "nl" ]
 then
   nightlight
+else
+ echo -e "Usage : ./aus \$arg\n\$arg = nl -> enable/disable nightlight"
 fi
 
