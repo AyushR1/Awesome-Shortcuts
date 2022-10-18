@@ -10,7 +10,13 @@ nightlight(){
 if [ "$1" == "nl" ]
 then
   nightlight
+elif [ "$1" == "temp"  ]
+then
+  gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature $2
+elif [ "$1" == "schedule" ]
+then
+  gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from $2
+  gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to $3
 else
- echo -e "Usage : ./aus \$arg\n\$arg = nl -> enable/disable nightlight"
+  echo -e "Usage : ./aus [option] [value if necessary]\n  option = nl -> enable/disable nightlight\n  option = temp <temperature_value>\n  option = time <from> <to>\n\n  ======================Examples======================\n\n  ./aus nl\n  ./aus temp 3500\n  ./aus schedule 10.00 18.83\n  # Suppose you want to schedule nightlight from 10:00 to 18:50 You need to convert the minutes in decimal Like above 50/60=0.83"
 fi
-
